@@ -1,5 +1,0 @@
-ufo\service\UfoSightingService.class
-ufo\dto\UfoSighting.class
-ufo\service\UfoSightingServiceImpl.class
-ufo\util\Constants.class
-ufo\util\UfoSightingFileReader.class
