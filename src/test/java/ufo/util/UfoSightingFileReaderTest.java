@@ -9,7 +9,7 @@ public class UfoSightingFileReaderTest {
 	@Test (expected = FileNotFoundException.class)
 	public void checkForWrongPathOfFile() throws Exception {
 
-		UfoSightingFileReader.readTSVFile("wrongFile");
+		FileReader.readTSVFileAsList("wrongFile");
 	}
 
 

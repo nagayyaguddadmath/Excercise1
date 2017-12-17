@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import ufo.dto.UfoSighting;
 import ufo.util.Constants;
-import ufo.util.UfoSightingFileReader;
+import ufo.util.FileReader;
 
 public class UfoSightingServiceImpl implements UfoSightingService {
 
@@ -14,7 +14,7 @@ public class UfoSightingServiceImpl implements UfoSightingService {
 	public List<UfoSighting> getAllSightings() {
 
 		try {
-			List<String> ufoSightings = UfoSightingFileReader.readTSVFile(Constants.FILENAME.getValue());
+			List<String> ufoSightings = FileReader.readTSVFileAsList(Constants.FILENAME.getValue());
 
 			ufoSightingsList = convertToUfoList(ufoSightings);
 

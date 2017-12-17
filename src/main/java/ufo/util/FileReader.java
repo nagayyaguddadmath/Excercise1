@@ -7,15 +7,13 @@ import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 
-public class UfoSightingFileReader {
+public class FileReader {
 
-	public static List<String> readTSVFile(String fileName) throws Exception {
+	public static List<String> readTSVFileAsList(String fileName) throws Exception {
 
 		try {
-			InputStream  inputFile = ClassLoader.getSystemClassLoader().getResourceAsStream(fileName);
-			if (inputFile == null) {
-				throw new FileNotFoundException("Error: Given File not found");
-			}
+			InputStream  inputFile = validateFilePath(fileName);
+			
 			List<String> ufoSightings = IOUtils.readLines(inputFile);
 
 			return ufoSightings;
@@ -28,5 +26,12 @@ public class UfoSightingFileReader {
 		}
 	}
 
+	private static InputStream validateFilePath(String fileName) throws FileNotFoundException {
+		InputStream  inputFile = ClassLoader.getSystemClassLoader().getResourceAsStream(fileName);
+		if (inputFile == null) {
+			throw new FileNotFoundException("Error: Given File not found");
+		}
+		return inputFile;
+	}
 
 }
